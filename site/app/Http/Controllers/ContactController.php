@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Contact;
+use Alert;
+class ContactController extends Controller
+{
+    
+
+    public function contact (Request $request){
+
+  $contact= new Contact();
+      $contact->nom=$request->input('nom');
+   $contact->email=$request->input('email');
+   $contact->text=$request->input('text');
+   $contact->save();
+
+
+session()->flash('ss' ,'creat contact sucess  ');
+ return redirect('/');
+
+
+
+    }
+}
